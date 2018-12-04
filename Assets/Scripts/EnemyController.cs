@@ -42,11 +42,10 @@ public class EnemyController : MonoBehaviour {
     {
         if (alive == true)
         {
+            gameObject.layer = 2;
             alive = false;
             Debug.Log("Zombie Killed");
             zombieAnim.SetBool("ZombieDead", true);
-            yield return new WaitForSeconds(0.001f);
-            zombieCollider.enabled = false;
             yield return new WaitForSeconds(2);
             Destroy(zombie.gameObject);
             

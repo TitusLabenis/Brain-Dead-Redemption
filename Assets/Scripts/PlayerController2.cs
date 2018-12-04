@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerController2 : MonoBehaviour {
 
+    private float fireRate = 2f;
+    private float nextTimeToFire = 0f;
 
     //Is the player idle
     private bool canShoot = false;
@@ -181,8 +183,9 @@ public class PlayerController2 : MonoBehaviour {
         }
 
         //SHOOTING:
-        if (Input.GetButtonUp("shoot") && gunOut == true && currentAmmo >= 1 && canShoot == true)
+        if (Input.GetButtonUp("shoot") && gunOut == true && currentAmmo >= 1 && canShoot == true && Time.time >= nextTimeToFire)
         {
+            nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
 

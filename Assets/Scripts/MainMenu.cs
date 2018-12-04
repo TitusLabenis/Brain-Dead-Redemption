@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
+    [SerializeField]
+    private GameObject deathMenu;
+
     private void Update()
     {
         if (Input.GetKey("escape"))
@@ -13,6 +16,7 @@ public class MainMenu : MonoBehaviour {
 
     public void PlayGame()
     {
+        deathMenu.SetActive(false);
         SceneManager.LoadScene("SampleScene");
         Time.timeScale = 1f;
     }
